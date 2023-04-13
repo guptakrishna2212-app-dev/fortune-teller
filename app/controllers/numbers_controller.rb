@@ -9,5 +9,16 @@ class NumbersController < ApplicationController
     end
 
     render({ :template => "lottery_stuff/woohoo.html.erb"})
-  end 
+  end
+
+  def losers
+    @loser_numbers = Array.new
+
+    5.times do
+      b = rand(1..100)
+      @loser_numbers.push(b)
+    end
+
+    render({:template => "lottery_stuff/doohoo.html.erb"})
+  end
 end
